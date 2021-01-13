@@ -3,10 +3,19 @@
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: "Roboto";
-  background: #151515;
+html {
+  height: 100%;
 }
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(#43e97b, #38f9d7);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Loading Screen */
 .loading {
   position: absolute;
   top: 50%;
@@ -17,7 +26,7 @@ body {
   font-size: 80px;
   font-weight: 400;
   text-align: center;
-  color: #999;
+  color: #292f3f;
   margin-bottom: 25px;
 }
 .add {
@@ -45,13 +54,13 @@ body {
 .progress {
   width: 203px;
   height: 16px;
-  background: #f60d54;
+  background: #43e97b;
   border-radius: 13px;
 }
 .percent {
   position: absolute;
   left: 187px;
-  color: #fdb5ca;
+  color: white;
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 1px;
