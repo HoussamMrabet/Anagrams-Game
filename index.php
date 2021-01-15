@@ -10,7 +10,8 @@
       </div>
 </div>
 
+<script src="layout/app/loading.js?v=<?php echo time(); ?>"></script>
+
 <?php
 	header("refresh:7;url='menu.php'");
-	include $tpl . 'footer.php'; 
 ?>

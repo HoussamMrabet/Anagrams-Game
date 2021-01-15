@@ -1,33 +1,16 @@
 <?php
     include 'init.php';
+    include $tpl . 'nav.php';
 ?>
 
-<header>
-    <nav class="nav-bar">
-        <div class="options">
-            <button>song</button>
-            <button>sounds</button>
-        </div>
-        <div class="log-in-out">
-            <button>login</button>
-            <button>logout</button>
-        </div>
-    </nav>
-</header>
 <main>
     <h1>ANAGRAMS</h1>
     <div class="menu">
-        <ul>
-            <li><a href="#">PLAY</a></li>
-            <li><a href="#">TOP SCORES</a></li>
-            <li><a href="#">HOW TO PLAY</a></li>
-        </ul>
+        <a href="game.php"><i class="fas fa-play"></i> PLAY</a>
+        <a href="score.php"><i class="fas fa-star"></i> TOP SCORES</a>
+        <a href="guide.php"><i class="fas fa-question"></i> HOW TO PLAY</a>
     </div>
 </main>
-
-<footer>
-    copyright&copy; Reserved 2021
-</footer>
 
 <?php
 	include $tpl . 'footer.php'; 
