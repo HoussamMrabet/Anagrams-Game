@@ -12,10 +12,12 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  background: linear-gradient(#43e97b, #38f9d7);
+  font-family: "Roboto", Arial, sans-serif;
+  /*background: linear-gradient(#43e97b, #38f9d7);*/
+  background-image: url(../img/bg2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 /* Loading Screen Start*/
@@ -86,18 +88,21 @@ header .nav-bar .log-in-out {
 }
 
 header .nav-bar button {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border: none;
   outline: none;
+  border: 1px solid #7e0633;
   border-radius: 100%;
-  background-color: #292f3f;
+  background-color: #7e0633;
   color: white;
   cursor: pointer;
 }
 
-header .nav-bar button:hover {
-  background-color: #292f3f80;
+header .nav-bar button:hover,
+main .menu a:hover {
+  background-color: #f82f43;
+  border: 1px solid #f82f43;
 }
 
 main {
@@ -109,29 +114,82 @@ main {
 
 main h1 {
   margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fcdcc5;
 }
 
 main .menu {
   display: flex;
   flex-direction: column;
-  background-color: gray;
+  background-image: url(../img/bg1.jpg);
   margin: 4rem 0;
   padding: 3rem 0;
+  border-radius: 1rem;
 }
 
 main .menu a {
   text-align: center;
   text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
   margin: 1rem 4rem;
   padding: 1rem 4rem;
-  border: 1px solid #292f3f;
+  border: 1px solid #7e0633;
   border-radius: 5px;
-  background-color: #292f3f;
-  color: white;
+  background-color: #7e0633;
+  color: #fcdcc5;
   cursor: pointer;
 }
 main .menu a i {
   margin-right: 1rem;
+}
+
+main .guide,
+main .rank {
+  width: 50vh;
+  height: auto;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background-image: url(../img/bg1.jpg);
+}
+
+main .rank {
+  width: 1200px;
+  padding: 2rem 5rem;
+}
+
+main .guide p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+main .rank ul li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+main .rank ul li .ranknbr {
+  align-self: start;
+  width: 2rem;
+}
+
+main .rank ul li .username {
+  align-self: center;
+  text-align: center;
+  width: 10rem;
+}
+
+main .rank ul li .score {
+  align-self: end;
+  width: 3rem;
 }
 
 footer {

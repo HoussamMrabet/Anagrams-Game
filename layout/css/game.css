@@ -1,0 +1,128 @@
+body {
+  background-image: url(../img/bg1.jpg);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #7e0633;
+}
+
+.letters-gen ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letters-gen ul li {
+  list-style: none;
+  font-size: 2rem;
+  font-weight: 700;
+  width: 5rem;
+  height: 5rem;
+  background-color: #7e0633;
+  box-shadow: 3px 3px 5px #310213;
+  border-radius: 5px;
+  color: white;
+  padding: 1.5rem;
+  margin: 2rem 0.5rem;
+  text-align: center;
+}
+
+.start {
+  width: 8rem;
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: white;
+  letter-spacing: 2px;
+  padding: 1rem;
+  margin: 2rem auto;
+  border: none;
+  outline: none;
+  background-color: #f82f43;
+  box-shadow: 3px 3px 5px #910e1b;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start:hover {
+  background-color: rgba(248, 47, 67, 0.9);
+}
+
+.start:active {
+  box-shadow: 3px 3px 5px #910e1b inset;
+}
+
+.word-guess {
+  display: none;
+}
+
+.word-guess ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-guess ul li {
+  list-style: none;
+  font-size: 2rem;
+  font-weight: 900;
+  width: 5rem;
+  height: 5rem;
+  margin: 2rem 0.1rem;
+  text-align: center;
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.scores .score {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #f82f43;
+  font-size: 2rem;
+  font-family: Courier New;
+  font-weight: bolder;
+}
+
+.scores .high-score {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #f82f43;
+  font-size: 2rem;
+  font-family: Courier New;
+  font-weight: bolder;
+}
+
+.scores .quote {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #f82f43;
+  font-size: 2rem;
+  font-family: Courier New;
+  font-weight: bolder;
+}
+
+.scores .timer {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 400%;
+  font-family: Courier New;
+  font-weight: 300;
+  text-shadow: 4px 0 0 #910e1b, -4px 0 0 #910e1b, 0 4px 0 #910e1b,
+    0 -4px 0 #910e1b, 3px 3px #910e1b, -3px -3px 0 #910e1b, 3px -3px 0 #910e1b,
+    -3px 3px 0 #910e1b;
+}
