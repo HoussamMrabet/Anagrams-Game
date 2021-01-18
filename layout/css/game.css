@@ -5,6 +5,7 @@ body {
 h1 {
   text-align: center;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   font-size: 3rem;
   font-weight: 700;
   color: #7e0633;
@@ -31,6 +32,11 @@ h1 {
   text-align: center;
 }
 
+.letters-gen ul li.active {
+  background-color: #915f71;
+  box-shadow: 3px 3px 5px #44232f;
+}
+
 .start {
   width: 8rem;
   height: 3rem;
@@ -39,7 +45,7 @@ h1 {
   color: white;
   letter-spacing: 2px;
   padding: 1rem;
-  margin: 2rem auto;
+  margin: 6rem auto;
   border: none;
   outline: none;
   background-color: #f82f43;
@@ -56,7 +62,9 @@ h1 {
   box-shadow: 3px 3px 5px #910e1b inset;
 }
 
-.word-guess {
+.start.active,
+.word-guess.active,
+.letters-gen.active {
   display: none;
 }
 

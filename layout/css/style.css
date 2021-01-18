@@ -28,10 +28,10 @@ body {
   transform: translate(-50%, -50%);
 }
 .text {
-  font-size: 80px;
-  font-weight: 400;
+  font-size: 3rem;
+  font-weight: 700;
   text-align: center;
-  color: #292f3f;
+  color: white;
   margin-bottom: 25px;
 }
 .add {
@@ -59,7 +59,7 @@ body {
 .progress {
   width: 203px;
   height: 16px;
-  background: #43e97b;
+  background: #7e0633;
   border-radius: 13px;
 }
 .percent {
