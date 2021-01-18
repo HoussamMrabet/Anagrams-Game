@@ -62,9 +62,7 @@ h1 {
   box-shadow: 3px 3px 5px #910e1b inset;
 }
 
-.start.active,
-.word-guess.active,
-.letters-gen.active {
+.active {
   display: none;
 }
 

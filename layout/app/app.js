@@ -18,7 +18,10 @@ let originalTime = 60;
 let currentTime = originalTime;
 let timerInterval = currentTime;
 let timesUp = false;
-
+const noMusic = document.querySelector('#nomusic');
+const music = document.querySelector('#music');
+const sound = document.querySelector('#sound');
+const mute = document.querySelector('#mute');
 
 // Setting the Words List
 let request = new XMLHttpRequest();
@@ -29,6 +32,22 @@ words = request.responseText.split('\n');
 // Events
 start.addEventListener('click', startGame);
 window.addEventListener('keydown', play);
+music.addEventListener('click', () => {
+    music.classList.toggle('active');   
+    noMusic.classList.toggle('active');   
+});
+sound.addEventListener('click', () => {
+    sound.classList.toggle('active');
+    mute.classList.toggle('active');
+});
+noMusic.addEventListener('click', () => {
+    music.classList.toggle('active');   
+    noMusic.classList.toggle('active');   
+});
+mute.addEventListener('click', () => {
+    sound.classList.toggle('active');
+    mute.classList.toggle('active');
+});
 
 // Functions
 
