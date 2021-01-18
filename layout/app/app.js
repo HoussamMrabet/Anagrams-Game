@@ -13,6 +13,7 @@ const quote = document.querySelector('.quote');
 const timer = document.querySelector('.timer');
 let lettersGen = [];
 let words = [];
+let word = [];
 let originalTime = 60;
 let currentTime = originalTime;
 let timerInterval = currentTime;
@@ -27,6 +28,7 @@ words = request.responseText.split('\n');
 
 // Events
 start.addEventListener('click', startGame);
+window.addEventListener('keydown', play);
 
 // Functions
 
@@ -36,6 +38,7 @@ function startGame() {
     letterGen.classList.toggle('active');
     wordInput.classList.toggle('active');
     counter();
+    currentTime = originalTime;
 }
 
 function gen() {
@@ -107,4 +110,56 @@ function render(item, seconds) {
 
 render(timer, currentTime);
 
+function play(e) {
+    let key = e.keyCode;
+
+    if (key == 8) {
+        let deleted = word[word.length - 1];
+        word.pop();
+        spots[word.length].innerHTML = "__";
+        let i = lettersGen.indexOf(deleted)
+        if (!tiles[i].classList.contains("active")){
+            i = lettersGen.indexOf(deleted, i + 1);
+            if (!tiles[i].classList.contains("active")) {
+                i = lettersGen.indexOf(deleted, i + 1);
+                if (!tiles[i].classList.contains("active")) {
+                    i = lettersGen.indexOf(deleted, i + 1);
+                } else {
+                    tiles[i].classList.remove('active');
+                }
+            } else {
+                tiles[i].classList.remove('active');
+            }
+        } else {
+            tiles[i].classList.remove('active');
+        }
+    }
+
+    if(word.length > 7) {
+        return;
+    } else {
+        if (lettersGen.includes(String.fromCharCode(key))) {
+            let l = word.length;
+            let letter = String.fromCharCode(key);
+            spots[l].innerHTML = letter.toUpperCase();
+            let i = lettersGen.indexOf(String.fromCharCode(key));
+            if (tiles[i].classList.contains("active")){
+                i = lettersGen.indexOf(String.fromCharCode(key), i + 1);
+                if (tiles[i].classList.contains("active")) {
+                    i = lettersGen.indexOf(String.fromCharCode(key), i + 1);
+                    if (tiles[i].classList.contains("active")) {
+                        i = lettersGen.indexOf(String.fromCharCode(key), i + 1);
+                    } else {
+                        tiles[i].classList.add('active');
+                    }
+                } else {
+                    tiles[i].classList.add('active');
+                }
+            } else {
+                tiles[i].classList.add('active');
+            }
+            word.push(letter);
+        }
+    }
+}
 
