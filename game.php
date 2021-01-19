@@ -39,6 +39,8 @@
     <p class="timer"></p>
 </div>
 
+<script src="<?php echo $js ?>game.js?v=<?php echo time(); ?>"></script>
+
 <?php
 	include $tpl . 'footer.php'; 
 ?>
