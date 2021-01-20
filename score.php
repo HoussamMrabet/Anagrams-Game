@@ -1,71 +1,28 @@
 <?php
     include 'init.php';
     include $tpl . 'nav.php';
+    $sql1 = "SELECT * FROM user ORDER BY highScore DESC LIMIT 10";
+    $res1 = mysqli_query($connexion,$sql1);
+    $counter = 1;
+    if($res1){
+        
 ?>
-
 <main>
     <h1>Top 10 Scores</h1>
     <div class="rank">
         <ul>
-            <li>
-                <div class="ranknbr">1</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">2</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">3</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">4</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">5</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">6</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">7</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">8</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">9</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
-            <hr>
-            <li>
-                <div class="ranknbr">10</div>
-                <div class="username">username</div>
-                <div class="score">70</div>
-            </li>
+            <?php
+                while($members = mysqli_fetch_array($res1)){
+                    $username=$members["username"];
+                    $score=$members["highScore"];
+                    echo '<li>';
+                    echo '<div class="ranknbr">'.$counter.'</div>';
+                    $counter++;
+                    echo '<div class="username">'.$username.'</div>';
+                    echo '<div class="score">'.$score.'</div>';
+                    echo '</li><hr>';
+                }}       
+            ?>
         </ul>
     </div>
 </main>

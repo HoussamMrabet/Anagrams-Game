@@ -7,8 +7,8 @@
             <button id="mute" class="active"><i class="fas fa-volume-mute"></i></button>
         </div>
         <div class="log-in-out">
-            <button><i class="fas fa-sign-in-alt"></i></button>
-            <button><i class="fas fa-power-off"></i></button>
+            <button><a href=""><i class="fas fa-sign-in-alt"></i> Log in</a></button>
+            <button><a href=""><i class="fas fa-power-off"></i> Log out</a></button>
         </div>
     </nav>
 </header>

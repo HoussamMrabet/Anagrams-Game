@@ -20,6 +20,11 @@ body {
   background-size: cover;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 /* Loading Screen Start*/
 .loading {
   position: absolute;
@@ -97,6 +102,12 @@ header .nav-bar button {
   background-color: #7e0633;
   color: white;
   cursor: pointer;
+}
+
+header .nav-bar .log-in-out button {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 50px;
 }
 
 header .nav-bar button:hover,
