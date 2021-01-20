@@ -31,13 +31,23 @@
         <li class="spot">__</li>
     </ul>
 </div>
+<button class="reload active">RELOAD 3</button>
+<button class="stop active">STOP</button>
+<a class="exit" href="menu.php">EXIT</a>
 
 <div class="scores">
-    <h2 class="score">Score : 0</h2>
-    <h2 class="high-score">High Score : 0</h2>
+    <h2 class="score">Score : <span class="scorePoints">0</span></h2>
+    <h2 class="high-score">High Score : <span class="highScorePoints">0</span></h2>
     <p class="quote">Start !!</p>
     <p class="timer"></p>
 </div>
+
+<audio src="<?php echo $sounds ?>correct.wav" class="correctSound"></audio>
+<audio src="<?php echo $sounds ?>end.wav" class="endSound"></audio>
+<audio src="<?php echo $sounds ?>incorrect.wav" class="incorrectSound"></audio>
+<audio src="<?php echo $sounds ?>empty.wav" class="emptySound"></audio>
+<audio src="<?php echo $sounds ?>tick.wav" class="tickSound"></audio>
+<audio src="<?php echo $sounds ?>time.wav" class="timeSound"></audio>
 
 <script src="<?php echo $js ?>game.js?v=<?php echo time(); ?>"></script>
 

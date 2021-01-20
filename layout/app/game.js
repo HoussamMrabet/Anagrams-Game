@@ -1,16 +1,26 @@
 // Variables
 const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'G', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'G', 'K', 'L', 'M', 'N','P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z'];
-const vowels = ['A','E','I','O', 'U', 'Y'];
+const vowels = ['A','E','I','O', 'U'];
 const start = document.querySelector('.start');
+const stop = document.querySelector('.stop');
+const reload = document.querySelector('.reload');
 const tiles = document.querySelectorAll('.tile');
 const letterGen = document.querySelector('.letters-gen');
 const spots = document.querySelectorAll('.spot');
 const wordInput = document.querySelector('.word-guess');
 const score = document.querySelector('.score');
+const scorePoints = document.querySelector('.scorePoints');
 const highScore = document.querySelector('.high-score');
+const highScorePoints = document.querySelector('.highScorePoints');
 const quote = document.querySelector('.quote');
 const timer = document.querySelector('.timer');
+const correctSound = document.querySelector('.correctSound');
+const endSound = document.querySelector('.endSound');
+const incorrectSound = document.querySelector('.incorrectSound');
+const emptySound = document.querySelector('.emptySound');
+const timeSound = document.querySelector('.timeSound');
+const tickSound = document.querySelector('.tickSound');
 let lettersGen = [];
 let lettersGenUsed = [];
 let deleted = [];
@@ -25,6 +35,7 @@ let originalTime = 60;
 let currentTime = originalTime;
 let timerInterval = currentTime;
 let timesUp = false;
+let reloadChance = 3;
 
 // Setting the Words List
 let request = new XMLHttpRequest();
@@ -34,6 +45,8 @@ words = request.responseText.split('\n');
 
 // Events
 start.addEventListener('click', startGame);
+stop.addEventListener('click', stopGame);
+reload.addEventListener('click', rel);
 window.addEventListener('keydown', play);
 
 // Functions
@@ -43,6 +56,8 @@ function startGame() {
     start.classList.toggle('active');
     letterGen.classList.toggle('active');
     wordInput.classList.toggle('active');
+    reload.classList.toggle('active');
+    stop.classList.toggle('active');
     counter();
     currentTime = originalTime;
 }
@@ -58,7 +73,7 @@ function gen() {
     }
 
     for (let i = 0; i < 3; i++){
-        lettersGen.push(vowels[Math.round(Math.random()*5)]);
+        lettersGen.push(vowels[Math.round(Math.random()*4)]);
     }
 
     for (let i = 0; i < 2; i++){
@@ -83,24 +98,70 @@ function counter() {
             currentTime--;
             if (currentTime < 6) {
                 timer.style.color = 'red';
+                timeSound.currentTime = 0;
+                timeSound.play();
             }
             if (currentTime < 1) {
                 timer.style.color = 'white';
                 quote.innerHTML = "Time's up!";
+                endSound.currentTime = 0;
+                endSound.play();
             }
             render(timer, currentTime);
         } else {
-            timesUp = true;
-            start.classList.toggle('active');
-            letterGen.classList.toggle('active');
-            wordInput.classList.toggle('active');
-            quote.innerHTML = "Start !!";
-            score.innerHTML = "Score : 0"
-            render(timer, originalTime);
-            clearInterval(timerInterval);
+            stopGame();
         }
     }, 1000);
 
+}
+
+function rel() {
+    if (reloadChance > 0) {
+        gen();
+        tiles.forEach(tile => {
+            tile.classList.remove("active");
+        });
+        spots.forEach(spot => {
+            spot.innerHTML = "__";
+        });
+        deleted = [];
+        indexDeleted = [];
+        word = [];
+        reloadChance--;
+        reload.innerHTML = "RELOAD " + reloadChance;
+        reload.onfocus = null;
+        if (!reloadChance) {
+            reload.classList.add('reloadActive');
+        }
+    }
+}
+
+function stopGame() {
+    timesUp = true;
+    start.classList.toggle('active');
+    stop.classList.toggle('active');
+    letterGen.classList.toggle('active');
+    wordInput.classList.toggle('active');
+    reload.classList.toggle('active');
+    reload.classList.remove('reloadActive');
+    quote.innerHTML = "Start !!";
+    scorePoints.innerHTML = "0";
+    points = 0;
+    word = [];
+    wordTaken = [];
+    wordPlayed = [];
+    deleted = [];
+    indexDeleted = [];
+    reloadChance = 3;
+    reload.innerHTML = "RELOAD 3";
+    tiles.forEach(tile => {
+        tile.classList.remove("active");
+    });
+    spots.forEach(spot => {
+        spot.innerHTML = "__";
+    });
+    render(timer, originalTime);
+    clearInterval(timerInterval);
 }
 
 function getTimeString(seconds) {
@@ -131,15 +192,25 @@ function play(e) {
         wordPlayed = word.join("");
         if (words1.includes(wordPlayed.toLowerCase())) {
             if (wordTaken.includes(wordPlayed)) {
-                quote.innerHTML = "NO REPEAT!"
+                quote.innerHTML = "NO REPEAT!";
+                incorrectSound.currentTime = 0;
+                incorrectSound.play();
             } else {
                 points += word.length;
                 wordTaken.push(wordPlayed)
                 quote.innerHTML = "AWESOME!";
-                score.innerHTML = "Score : " + points;
+                scorePoints.innerHTML = points;
+                if (points > highScorePoints.innerText) {
+                    highScorePoints.innerHTML = points;
+                }
+                correctSound.currentTime = 0;
+                correctSound.play();
+                currentTime += 5;
             }
         } else {
             quote.innerHTML = "NOPE!"
+            incorrectSound.currentTime = 0;
+            incorrectSound.play();
         }
         deleted = [];
         indexDeleted = [];
@@ -158,11 +229,13 @@ function play(e) {
             indexDeleted.pop();
             word.pop();
             spots[word.length].innerHTML = "__";
-            tiles[index].classList.remove('active');    
+            tiles[index].classList.remove('active');  
+            emptySound.currentTime = 0;
+            emptySound.play();
         }
     }
 
-    if(word.length > 7) {
+    if (word.length > 7) {
         return;
     } else {
         if (lettersGenUsed.includes(String.fromCharCode(key))) {
@@ -175,6 +248,8 @@ function play(e) {
             indexDeleted.push(i);
             lettersGenUsed[i] = null;
             word.push(letter);
+            tickSound.currentTime = 0;
+            tickSound.play();
         }
     }
 }
