@@ -8,7 +8,7 @@ const musicFile = document.querySelector('.musicSound');
 // Events
 window.addEventListener('load', () => {
     musicFile.play();
-    musicFile.volume = 0.1;
+    musicFile.volume = 1;
 });
 
 music.addEventListener('click', () => {

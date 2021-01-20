@@ -130,6 +130,7 @@ function rel() {
         reloadChance--;
         reload.innerHTML = "RELOAD " + reloadChance;
         reload.onfocus = null;
+        reload.blur();
         if (!reloadChance) {
             reload.classList.add('reloadActive');
         }
