@@ -1,6 +1,8 @@
 <?php
     include 'init.php';
     include $tpl . 'nav.php';
+    if(!isset($_SESSION['user'])){
+    }
 ?>
 
 <main>

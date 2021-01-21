@@ -4,6 +4,13 @@ const music = document.querySelector('#music');
 const sound = document.querySelector('#sound');
 const mute = document.querySelector('#mute');
 const musicFile = document.querySelector('.musicSound');
+const loginContainer = document.querySelector('.login-container');
+const login = document.querySelector('#login');
+const signinContainer = document.querySelector('.signin-container');
+const signin = document.querySelector('#signin');
+const loginCloseBtn = document.querySelector('.login-close-btn');
+const signinCloseBtn = document.querySelector('.signin-close-btn');
+const inputs = document.querySelectorAll('input[name]');
 
 // Events
 window.addEventListener('load', () => {
@@ -42,5 +49,36 @@ mute.addEventListener('click', () => {
     tickSound.volume = 1;
     timeSound.volume = 1;
 });
+login.addEventListener('click', showLogin);
+signin.addEventListener('click', showSignin);
+loginCloseBtn.addEventListener('click', closeLogin);
+signinCloseBtn.addEventListener('click', closeSignin);
 
 // Functions
+function showLogin(e) {
+    const popup = loginContainer.children[0];
+    loginContainer.classList.add('isActive');
+    popup.classList.add("isActive");  
+}
+function showSignin(e) {
+    const popup = signinContainer.children[0];
+    signinContainer.classList.add('isActive');
+    popup.classList.add("isActive");  
+}
+function closeLogin(e) {
+    const popup = loginContainer.children[0];
+    loginContainer.classList.remove("isActive");
+    popup.classList.add("isActive");
+    clearInputs();
+}
+function closeSignin(e) {
+    const popup = signinContainer.children[0];
+    signinContainer.classList.remove("isActive");
+    popup.classList.add("isActive");
+    clearInputs();
+}
+function clearInputs() {
+    inputs.forEach(input => {
+        input.value = "";
+    });
+}

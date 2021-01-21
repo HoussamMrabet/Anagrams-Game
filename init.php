@@ -2,20 +2,20 @@
 
     // Error Reporting
 
-    include 'includes/backend/connexion.php';
+    include 'includes/user/connexion.php';
 
     $sessionUser = '';
-    $sessionAvatar = '';
+    $sessionHighScore = '';
 
-    if (isset($_SESSION['user'])) {
-        $sessionUser = $_SESSION['user'];
-        $sessionAvatar = $_SESSION['avatar'];
+    if (isset($_SESSION['username'])) {
+        $sessionUser = $_SESSION['username'];
+        $sessionHighScore= $_SESSION['highScore'];
     }
 
     // Routes
 
     $tpl    = 'includes/templates/'; // Template Directory
-    $func	= 'includes/functions/'; // Functions Directory
+    $php	= 'includes/user/'; // user Directory
     $css 	= 'layout/css/'; // Css Directory
     $js 	= 'layout/app/'; // Js Directory
     $sounds = 'layout/sounds/';

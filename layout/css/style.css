@@ -217,3 +217,108 @@ footer {
 }
 
 /* Menu End */
+
+/* Login Start */
+
+.login-container,
+.signin-container {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.login-container.isActive,
+.signin-container.isActive {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.login-popup,
+.login-popup .forms,
+.signin-popup,
+.signin-popup .forms {
+  background: url("../img/bg1.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 2rem;
+  transition: transform 0.5s ease;
+  transform: translateY(-2rem);
+  min-width: 30%;
+  height: auto;
+}
+
+.login-popup .forms label,
+.signin-popup .forms label {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #7e0633;
+}
+
+.login-popup .forms input,
+.signin-popup .forms input {
+  padding: 0.1rem 0.5rem;
+  font-weight: 600;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+}
+
+.login-popup h1,
+.signin-popup h1 {
+  font-size: 2rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: #7e0633;
+}
+
+.login-popup.isActive,
+.signin-popup.isActive {
+  transform: translateY(0rem);
+}
+
+.login-close-btn,
+.signin-close-btn {
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  padding: 0.5rem;
+  align-self: flex-end;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #7e0633;
+  color: white;
+  font-weight: 900;
+}
+.submit-btn {
+  margin: 2rem !important;
+  padding: 1rem 3rem !important;
+  background: #7e0633;
+  border: none !important;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+.submit-btn:hover,
+.login-close-btn:hover,
+.signin-close-btn:hover {
+  background-color: #f82f43;
+}
+.submit-btn:active,
+.login-close-btn:active,
+.signin-close-btn:active {
+  box-shadow: 1px 1px 5px #7e0633 inset;
+}
+
+/* Login End */

@@ -13,7 +13,7 @@
             header ("location:acceuil.php");
         }
     }*/
-    session_start(); // Starting Session
+    /*session_start(); // Starting Session
     $error = ""; // Variable To Store Error Message
     if (isset($_POST['connexion'])) {
     if (empty($_POST['gmail']) || empty($_POST['mdp'])) {
@@ -36,5 +36,6 @@
     header("location: menu.php"); // Redirecting To Menu Page
     mysqli_close($connexion); // Closing Connection
     }
-    }
+    }*/
 ?>
+
