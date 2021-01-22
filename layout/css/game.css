@@ -84,30 +84,6 @@ h1 {
   box-shadow: 3px 3px 5px #910e1b inset;
 }
 
-.exit {
-  text-decoration: none;
-  position: fixed;
-  top: 85%;
-  right: 1rem;
-  width: 4.3rem;
-  height: 3.5rem;
-  padding: 1rem;
-  font-weight: 700;
-  border: none;
-  outline: none;
-  text-align: center;
-  border: 1px solid #7e0633;
-  border-radius: 50px;
-  background-color: #7e0633;
-  color: white;
-  cursor: pointer;
-}
-
-.exit:hover {
-  background-color: #f82f43;
-  border: 1px solid #f82f43;
-}
-
 .word-guess ul {
   display: flex;
   justify-content: center;

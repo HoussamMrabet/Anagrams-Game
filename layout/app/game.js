@@ -34,7 +34,7 @@ let points = 0;
 let originalTime = 60;
 let currentTime = originalTime;
 let timerInterval = currentTime;
-let timesUp = false;
+let timesUp = true;
 let reloadChance = 3;
 
 // Setting the Words List
@@ -53,6 +53,7 @@ window.addEventListener('keydown', play);
 
 function startGame() {
     gen();
+    timesUp = false;
     start.classList.toggle('active');
     letterGen.classList.toggle('active');
     wordInput.classList.toggle('active');
@@ -153,6 +154,8 @@ function stopGame() {
     wordPlayed = [];
     deleted = [];
     indexDeleted = [];
+    lettersGen = [];
+    lettersGenUsed = [];
     reloadChance = 3;
     reload.innerHTML = "RELOAD 3";
     tiles.forEach(tile => {
@@ -183,75 +186,77 @@ render(timer, currentTime);
 function play(e) {
     let key = e.keyCode;
 
-    if (key == 13) {
-        tiles.forEach(tile => {
-            tile.classList.remove("active");
-        })
-        spots.forEach(spot => {
-            spot.innerHTML = "__";
-        });
-        wordPlayed = word.join("");
-        if (words1.includes(wordPlayed.toLowerCase())) {
-            if (wordTaken.includes(wordPlayed)) {
-                quote.innerHTML = "NO REPEAT!";
+    if (!timesUp) {
+        if (key == 13) {
+            tiles.forEach(tile => {
+                tile.classList.remove("active");
+            })
+            spots.forEach(spot => {
+                spot.innerHTML = "__";
+            });
+            wordPlayed = word.join("");
+            if (words1.includes(wordPlayed.toLowerCase())) {
+                if (wordTaken.includes(wordPlayed)) {
+                    quote.innerHTML = "NO REPEAT!";
+                    incorrectSound.currentTime = 0;
+                    incorrectSound.play();
+                } else {
+                    points += word.length;
+                    wordTaken.push(wordPlayed)
+                    quote.innerHTML = "AWESOME!";
+                    scorePoints.innerHTML = points;
+                    if (points > highScorePoints.innerText) {
+                        highScorePoints.innerHTML = points;
+                    }
+                    correctSound.currentTime = 0;
+                    correctSound.play();
+                    currentTime += 5;
+                }
+            } else {
+                quote.innerHTML = "NOPE!"
                 incorrectSound.currentTime = 0;
                 incorrectSound.play();
-            } else {
-                points += word.length;
-                wordTaken.push(wordPlayed)
-                quote.innerHTML = "AWESOME!";
-                scorePoints.innerHTML = points;
-                if (points > highScorePoints.innerText) {
-                    highScorePoints.innerHTML = points;
-                }
-                correctSound.currentTime = 0;
-                correctSound.play();
-                currentTime += 5;
             }
-        } else {
-            quote.innerHTML = "NOPE!"
-            incorrectSound.currentTime = 0;
-            incorrectSound.play();
+            deleted = [];
+            indexDeleted = [];
+            word = [];
+            lettersGenUsed = lettersGen.slice(0);
         }
-        deleted = [];
-        indexDeleted = [];
-        word = [];
-        lettersGenUsed = lettersGen.slice(0);
-    }
-
-    if (key == 8) {
-        if (indexDeleted.length == 0) {
+    
+        if (key == 8) {
+            if (indexDeleted.length == 0) {
+                return;
+            } else {
+                let i = indexDeleted.length - 1;
+                lettersGenUsed[indexDeleted[i]] = deleted[i];
+                let index = indexDeleted[i];
+                deleted.pop();
+                indexDeleted.pop();
+                word.pop();
+                spots[word.length].innerHTML = "__";
+                tiles[index].classList.remove('active');  
+                emptySound.currentTime = 0;
+                emptySound.play();
+            }
+        }
+    
+        if (word.length > 7) {
             return;
         } else {
-            let i = indexDeleted.length - 1;
-            lettersGenUsed[indexDeleted[i]] = deleted[i];
-            let index = indexDeleted[i];
-            deleted.pop();
-            indexDeleted.pop();
-            word.pop();
-            spots[word.length].innerHTML = "__";
-            tiles[index].classList.remove('active');  
-            emptySound.currentTime = 0;
-            emptySound.play();
-        }
-    }
-
-    if (word.length > 7) {
-        return;
-    } else {
-        if (lettersGenUsed.includes(String.fromCharCode(key))) {
-            let l = word.length;
-            let letter = String.fromCharCode(key);
-            spots[l].innerHTML = letter.toUpperCase();
-            let i = lettersGenUsed.indexOf(String.fromCharCode(key));
-            tiles[i].classList.add('active');
-            deleted.push(lettersGenUsed[i]);
-            indexDeleted.push(i);
-            lettersGenUsed[i] = null;
-            word.push(letter);
-            tickSound.currentTime = 0;
-            tickSound.play();
-        }
+            if (lettersGenUsed.includes(String.fromCharCode(key))) {
+                let l = word.length;
+                let letter = String.fromCharCode(key);
+                spots[l].innerHTML = letter.toUpperCase();
+                let i = lettersGenUsed.indexOf(String.fromCharCode(key));
+                tiles[i].classList.add('active');
+                deleted.push(lettersGenUsed[i]);
+                indexDeleted.push(i);
+                lettersGenUsed[i] = null;
+                word.push(letter);
+                tickSound.currentTime = 0;
+                tickSound.play();
+            }
+        }    
     }
 }
 

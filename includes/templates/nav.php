@@ -46,7 +46,6 @@
                 echo "<script>alert('wrong password or username')</script>";
             }
 		} else {			
-			$formErrors = array();
 
 			$username 	= $_POST['username'];
 			$password 	= $_POST['password'];
@@ -59,9 +58,9 @@
 								VALUES(:zuser, :zfname, :zgmail, :zpass, 0)");
 			$stmt->execute(array(
 				'zuser' => $username,
-				'zfname' => $password,
+				'zfname' => $fullname,
 				'zgmail' => $email,
-				'zpass' => $fullname,
+				'zpass' => $password,
             ));
             echo "<script>alert('Account created')</script>";
 		}

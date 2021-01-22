@@ -32,6 +32,8 @@
     </div>
 </main>
 
+<a class="exit" href="menu.php"><i class="fas fa-arrow-right"></i></a>
+
 <?php
 	include $tpl . 'footer.php'; 
 ?>
