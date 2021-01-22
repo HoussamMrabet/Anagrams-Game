@@ -1,16 +1,7 @@
 <?php
 
-    // Error Reporting
 
     include 'connexion.php';
-
-    $sessionUser = '';
-    $sessionHighScore = '';
-
-    if (isset($_SESSION['username'])) {
-        $sessionUser = $_SESSION['username'];
-        $sessionHighScore= $_SESSION['highScore'];
-    }
 
     // Routes
 

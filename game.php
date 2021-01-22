@@ -88,7 +88,6 @@
 <audio src="<?php echo $sounds ?>empty.wav" class="emptySound"></audio>
 <audio src="<?php echo $sounds ?>tick.wav" class="tickSound"></audio>
 <audio src="<?php echo $sounds ?>time.wav" class="timeSound"></audio>
-
 <script src="<?php echo $js ?>game.js?v=<?php echo time(); ?>"></script>
 
 <?php

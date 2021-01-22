@@ -74,8 +74,6 @@
 
 ?>
 
-
-
 <header>
     <nav class="nav-bar">
         <div class="options">

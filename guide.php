@@ -2,7 +2,6 @@
     include 'init.php';
     include $tpl . 'nav.php';
 ?>
-
 <main>
     <h1>How To Play</h1>
     <div class="guide">

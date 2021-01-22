@@ -5,7 +5,6 @@
         echo $_SESSION['username'];
     }
 ?>
-
 <main>
     <h1>ANAGRAMS</h1>
     <div class="menu">

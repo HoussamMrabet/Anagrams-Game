@@ -1,9 +1,6 @@
 <?php
     //TEST DE CONNEXION AU SERVEUR
-    /*$connexion = mysqli_connect("localhost","root","","anagrams");
-    if(!$connexion){
-        exit;
-    }*/
+
     // $dsn = 'mysql:host=localhost;dbname=anagrams';
 	// $user = 'root';
 	// $pass = '';

@@ -1,4 +1,3 @@
-
 <?php 
     include 'connexion.php';
     $data['score'] = $_POST['score'];
