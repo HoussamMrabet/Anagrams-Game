@@ -1,6 +1,11 @@
 <?php
     include 'init.php';
     include $tpl . 'nav.php';
+    if(isset($_SESSION["highScore"])){
+        $higherscore = $_SESSION["highScore"];
+    }else{
+        $higherscore = 0;
+    }
 ?>
 <link rel="stylesheet" href="layout/css/game.css?v=<?php echo time(); ?>">
 
@@ -37,7 +42,7 @@
 
 <div class="scores">
     <h2 class="score">Score : <span class="scorePoints">0</span></h2>
-    <h2 class="high-score">High Score : <span class="highScorePoints">0</span></h2>
+    <h2 class="high-score">High Score : <span class="highScorePoints"><?php echo $higherscore;?></span></h2>
     <p class="quote">Start !!</p>
     <p class="timer"></p>
 </div>

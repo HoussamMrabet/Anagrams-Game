@@ -4,13 +4,14 @@ const music = document.querySelector('#music');
 const sound = document.querySelector('#sound');
 const mute = document.querySelector('#mute');
 const musicFile = document.querySelector('.musicSound');
+//const successContainer = document.querySelector('.success-container');
 const loginContainer = document.querySelector('.login-container');
 const login = document.querySelector('#login');
 const signinContainer = document.querySelector('.signin-container');
 const signin = document.querySelector('#signin');
 const loginCloseBtn = document.querySelector('.login-close-btn');
 const signinCloseBtn = document.querySelector('.signin-close-btn');
-const inputs = document.querySelectorAll('input[name]');
+const inputs = document.querySelectorAll('input[required]');
 
 // Events
 window.addEventListener('load', () => {
@@ -53,6 +54,11 @@ login.addEventListener('click', showLogin);
 signin.addEventListener('click', showSignin);
 loginCloseBtn.addEventListener('click', closeLogin);
 signinCloseBtn.addEventListener('click', closeSignin);
+/*successContainer.addEventListener("transitionend", () => {
+    const popupBox = successContainer.children[0];
+    successContainer.classList.remove("isActive");
+    popupBox.classList.remove("isActive");
+});*/
 
 // Functions
 function showLogin(e) {
@@ -82,3 +88,8 @@ function clearInputs() {
         input.value = "";
     });
 }
+/*function good() {
+    const popupBox = successContainer.children[0];
+    successContainer.classList.add("isActive");
+    popupBox.classList.add("isActive");
+}*/

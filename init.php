@@ -2,7 +2,7 @@
 
     // Error Reporting
 
-    include 'includes/user/connexion.php';
+    include 'connexion.php';
 
     $sessionUser = '';
     $sessionHighScore = '';
@@ -15,7 +15,6 @@
     // Routes
 
     $tpl    = 'includes/templates/'; // Template Directory
-    $php	= 'includes/user/'; // user Directory
     $css 	= 'layout/css/'; // Css Directory
     $js 	= 'layout/app/'; // Js Directory
     $sounds = 'layout/sounds/';

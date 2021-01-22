@@ -110,6 +110,15 @@ header .nav-bar .log-in-out button {
   border-radius: 50px;
 }
 
+header .nav-bar .log-in-out button#logout {
+  width: 3rem;
+}
+
+header .nav-bar .log-in-out button#usernames {
+  width: 10rem;
+  pointer-events: none;
+}
+
 header .nav-bar button:hover,
 main .menu a:hover {
   background-color: #f82f43;
@@ -221,7 +230,8 @@ footer {
 /* Login Start */
 
 .login-container,
-.signin-container {
+.signin-container,
+.success-container {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -236,8 +246,13 @@ footer {
   pointer-events: none;
 }
 
+.success-container {
+  transition: all 2s ease-in-out;
+}
+
 .login-container.isActive,
-.signin-container.isActive {
+.signin-container.isActive,
+.success-container.isActive {
   opacity: 1;
   pointer-events: all;
 }
@@ -245,7 +260,8 @@ footer {
 .login-popup,
 .login-popup .forms,
 .signin-popup,
-.signin-popup .forms {
+.signin-popup .forms,
+.success-popup {
   background: url("../img/bg1.jpg");
   display: flex;
   flex-direction: column;
@@ -256,6 +272,10 @@ footer {
   transform: translateY(-2rem);
   min-width: 30%;
   height: auto;
+}
+
+.success-popup {
+  transition: transform 2s ease;
 }
 
 .login-popup .forms label,
@@ -282,8 +302,13 @@ footer {
   color: #7e0633;
 }
 
+.success-popup {
+  padding: 2rem;
+}
+
 .login-popup.isActive,
-.signin-popup.isActive {
+.signin-popup.isActive,
+.success-popup.isActive {
   transform: translateY(0rem);
 }
 

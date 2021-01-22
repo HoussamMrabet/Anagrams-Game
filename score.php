@@ -1,10 +1,15 @@
 <?php
     include 'init.php';
     include $tpl . 'nav.php';
-    $sql1 = "SELECT * FROM user ORDER BY highScore DESC LIMIT 10";
-    $res1 = mysqli_query($connexion,$sql1);
+    $getStmt = $con->prepare("SELECT * FROM user where highScore>-1 ORDER BY highScore DESC LIMIT 10");
+
+    $getStmt->execute();
+
+    $rows = $getStmt->fetchAll();
+
     $counter = 1;
-    if($res1){
+
+    if (! empty($rows)) {
         
 ?>
 <main>
@@ -12,9 +17,9 @@
     <div class="rank">
         <ul>
             <?php
-                while($members = mysqli_fetch_array($res1)){
-                    $username=$members["username"];
-                    $score=$members["highScore"];
+				foreach ($rows as $row) {
+                    $username=$row["username"];
+                    $score=$row["highScore"];
                     echo '<li>';
                     echo '<div class="ranknbr">'.$counter.'</div>';
                     $counter++;
