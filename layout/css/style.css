@@ -231,7 +231,8 @@ footer {
 
 .login-container,
 .signin-container,
-.success-container {
+.success-container,
+.share-container {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -252,7 +253,8 @@ footer {
 
 .login-container.isActive,
 .signin-container.isActive,
-.success-container.isActive {
+.success-container.isActive,
+.share-container.isActive {
   opacity: 1;
   pointer-events: all;
 }
@@ -261,7 +263,8 @@ footer {
 .login-popup .forms,
 .signin-popup,
 .signin-popup .forms,
-.success-popup {
+.success-popup,
+.share-popup {
   background: url("../img/bg1.jpg");
   display: flex;
   flex-direction: column;
@@ -276,6 +279,23 @@ footer {
 
 .success-popup {
   transition: transform 2s ease;
+}
+
+.share-container h1 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  color: #7e0633;
+}
+
+.share-container span {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #910e1b;
+  font-size: 400%;
+  font-family: Courier New;
+  font-weight: 900;
 }
 
 .login-popup .forms label,
@@ -308,12 +328,14 @@ footer {
 
 .login-popup.isActive,
 .signin-popup.isActive,
-.success-popup.isActive {
+.success-popup.isActive,
+.share-popup.isActive {
   transform: translateY(0rem);
 }
 
 .login-close-btn,
-.signin-close-btn {
+.signin-close-btn,
+.share-close-btn {
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   padding: 0.5rem;
@@ -337,12 +359,14 @@ footer {
 }
 .submit-btn:hover,
 .login-close-btn:hover,
-.signin-close-btn:hover {
+.signin-close-btn:hover,
+.share-close-btn:hover {
   background-color: #f82f43;
 }
 .submit-btn:active,
 .login-close-btn:active,
-.signin-close-btn:active {
+.signin-close-btn:active,
+.share-close-btn:active {
   box-shadow: 1px 1px 5px #7e0633 inset;
 }
 
@@ -370,4 +394,14 @@ footer {
 .exit:hover {
   background-color: #f82f43;
   border: 1px solid #f82f43;
+}
+
+.fb-share-button {
+  margin-bottom: 1rem;
+  margin-right: 0.1rem;
+}
+
+.socialShare {
+  display: flex;
+  flex-direction: row;
 }

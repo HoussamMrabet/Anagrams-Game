@@ -146,6 +146,7 @@ function stopGame() {
     reload.classList.toggle('active');
     reload.classList.remove('reloadActive');
     quote.innerHTML = "Start !!";
+    document.querySelector('.sharePoints').innerText = points;
     scorePoints.innerHTML = "0";
     points = 0;
     word = [];
@@ -163,6 +164,7 @@ function stopGame() {
     spots.forEach(spot => {
         spot.innerHTML = "__";
     });
+    showShare();
     render(timer, originalTime);
     clearInterval(timerInterval);
 }

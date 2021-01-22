@@ -10,6 +10,8 @@ const login = document.querySelector('#login');
 const signinContainer = document.querySelector('.signin-container');
 const signin = document.querySelector('#signin');
 const loginCloseBtn = document.querySelector('.login-close-btn');
+const shareContainer = document.querySelector('.share-container');
+const shareCloseBtn = document.querySelector('.share-close-btn');
 const signinCloseBtn = document.querySelector('.signin-close-btn');
 const inputs = document.querySelectorAll('input[required]');
 
@@ -54,6 +56,7 @@ login.addEventListener('click', showLogin);
 signin.addEventListener('click', showSignin);
 loginCloseBtn.addEventListener('click', closeLogin);
 signinCloseBtn.addEventListener('click', closeSignin);
+shareCloseBtn.addEventListener('click', closeShare);
 /*successContainer.addEventListener("transitionend", () => {
     const popupBox = successContainer.children[0];
     successContainer.classList.remove("isActive");
@@ -71,6 +74,11 @@ function showSignin(e) {
     signinContainer.classList.add('isActive');
     popup.classList.add("isActive");  
 }
+function showShare(e) {
+    const popup = shareContainer.children[0];
+    shareContainer.classList.add('isActive');
+    popup.classList.add("isActive");  
+}
 function closeLogin(e) {
     const popup = loginContainer.children[0];
     loginContainer.classList.remove("isActive");
@@ -82,6 +90,11 @@ function closeSignin(e) {
     signinContainer.classList.remove("isActive");
     popup.classList.add("isActive");
     clearInputs();
+}
+function closeShare(e) {
+    const popup = shareContainer.children[0];
+    shareContainer.classList.remove("isActive");
+    popup.classList.add("isActive");
 }
 function clearInputs() {
     inputs.forEach(input => {

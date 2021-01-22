@@ -67,6 +67,21 @@
     <p class="timer"></p>
 </div>
 
+<div class="share-container">
+    <div class="share-popup">
+        <button class="share-close-btn">X</button>
+        <h1>Share Your Score</h1>
+        <span class="sharePoints"></span>
+        <div class="socialShare">
+            <div class="fb-share-button" data-href="https://anagrams-game.herokuapp.com/game.php" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fanagrams-game.herokuapp.com%2Fgame.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="vh6Sx6yk"></script>
+
 <audio src="<?php echo $sounds ?>correct.wav" class="correctSound"></audio>
 <audio src="<?php echo $sounds ?>end.wav" class="endSound"></audio>
 <audio src="<?php echo $sounds ?>incorrect.wav" class="incorrectSound"></audio>
