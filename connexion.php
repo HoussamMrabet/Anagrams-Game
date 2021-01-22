@@ -4,15 +4,20 @@
     if(!$connexion){
         exit;
     }*/
-    $dsn = 'mysql:host=localhost;dbname=anagrams';
-	$user = 'root';
-	$pass = '';
-	$option = array(
-		PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-	);
+    // $dsn = 'mysql:host=localhost;dbname=anagrams';
+	// $user = 'root';
+	// $pass = '';
+	
+	$host = 'remotemysql.com';
+	$db = 'jaH8fAUX8R';
+	$user = 'jaH8fAUX8R';
+	$pass = 'heEP5Stx21';
+	$charset = 'utf8mb4';
+
+	$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
 	try {
-		$con = new PDO($dsn, $user, $pass, $option);
+		$con = new PDO($dsn, $user, $pass);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
