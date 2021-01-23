@@ -10,7 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('.highScorePoints').bind('DOMSubtreeModified',function(){
+        $('.highScorePoints').change(function(){
             //Selected value
             let newBestScore = $(this).text();
             let id = $('#idUser').text();
